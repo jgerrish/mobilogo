@@ -1,0 +1,9 @@
+bb/bin/**/*
+bb/build/*
+lib/LWUIT.jar
+lwuit/bin/**/*
+lwuit/deployed/**/*
+lwuit/.mtj.tmp/**/*
+midp2/bin/**/*
+midp2/bin/deployed/**/*
+midp2/.mtj.tmp/**/*

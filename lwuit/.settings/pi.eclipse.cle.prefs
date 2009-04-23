@@ -1,0 +1,16 @@
+#Sat Dec 27 14:25:13 EST 2008
+//LogoParser.cup/cup-compact-red=false
+//LogoParser.cup/cup-debug=false
+//LogoParser.cup/cup-expected-conflicts=0
+//LogoParser.cup/cup-no-positions=false
+//LogoParser.cup/cup-no-scanner=false
+//LogoParser.cup/cup-non-terms=false
+//LogoParser.cup/cup-output=src
+//LogoParser.cup/cup-parser-class=LogoParserCup
+//LogoParser.cup/cup-symbols-class=LogoSym
+//LogoParser.cup/cup-symbols-if=true
+//logo.lex/lex-code-method=0
+//logo.lex/lex-comply-jlex=false
+//logo.lex/lex-output=src
+//logo.lex/lex-skip-min=false
+eclipse.preferences.version=1

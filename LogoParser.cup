@@ -1,0 +1,106 @@
+package com.thedomokun.common;
+
+import java_cup.runtime.*;
+import com.thedomokun.logonodes.*;
+import com.thedomokun.common.ErrorHandler;
+
+/* Preliminaries to set up and use the scanner.  */
+scan with {: return getScanner().next_token(); :};
+
+parser code
+{:
+ErrorHandler handler = null;
+
+public void syntax_error(Symbol cur_token){
+    if (handler != null) {
+        handler.alert("Syntax error at line " + cur_token.left +
+                      " , character " + cur_token.right +
+                      " , token = " + cur_token.value);
+    }
+}
+
+public void setErrorHandler(ErrorHandler h) {
+    handler = h;
+}
+:}
+
+action code
+{:
+
+:}
+
+terminal		 FORWARD, BACKWARD, RIGHT, LEFT;
+terminal         REPEAT;
+terminal         TO, END;
+terminal Integer INTEGER;
+terminal Integer NUMBER;
+terminal Double  DOUBLE;
+terminal         PLUS, MINUS, DIV, MULT;
+terminal         LBRACKET, RBRACKET;
+terminal String  IDENTIFIER;
+terminal         FR, FL, BR, BL;
+terminal         COLON;
+
+
+non terminal LogoCmds cmdlist;
+non terminal LogoCmd command;
+non terminal LogoRepeat loop;
+non terminal LogoCmds list;
+non terminal Integer term;
+//non terminal         expr;
+non terminal LogoFunc function;
+non terminal sensors;
+non terminal paramlist;
+non terminal param;
+
+start with cmdlist;
+
+list    ::= LBRACKET cmdlist:l RBRACKET
+            {: RESULT = l; :}
+            ;
+
+cmdlist ::= cmdlist:l command:c
+            {: RESULT = new LogoCmds((LogoCmds)l, (LogoCmd)c); :}
+            | command:c
+            {: RESULT = new LogoCmds((LogoCmd)c); :}
+            | loop:l
+            {: RESULT = new LogoCmds((LogoRepeat)l); :}
+            ;
+
+loop    ::= REPEAT INTEGER:n list:l
+            {: RESULT = new LogoRepeat((LogoCmds)l, n.intValue()); :}
+            ;
+
+function ::= TO IDENTIFIER:i cmdlist:l END
+             {: RESULT = new LogoFunc((String)i, (LogoCmds)l); :}
+             ;
+
+paramlist ::= paramlist:l param:p
+              | param:p
+              ;
+
+param     ::= COLON IDENTIFIER:i
+              ;
+term    ::= DOUBLE:n
+            | INTEGER:n
+            {: RESULT = n; :}
+            ;
+
+//expr    ::= term;
+
+command ::= FORWARD term:t
+            {: RESULT = new LogoCmd(LogoSym.FORWARD, t.intValue()); :}
+            | BACKWARD term:t
+            {: RESULT = new LogoCmd(LogoSym.BACKWARD, t.intValue()); :}
+            | RIGHT term:t
+            {: RESULT = new LogoCmd(LogoSym.RIGHT, t.intValue()); :}
+            | LEFT term:t
+            {: RESULT = new LogoCmd(LogoSym.LEFT, t.intValue()); :}
+            | IDENTIFIER:i
+            {: RESULT = new LogoCmd((String)i); :}
+            | function:f
+            {: RESULT = f; :}
+            ;
+
+sensors ::= 'FR' | 'FL' | 'BR' | 'BL';
+

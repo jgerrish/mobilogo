@@ -1,0 +1,6 @@
+#Mon Jan 12 02:13:57 EST 2009
+eclipse.preferences.version=1
+obfuscate_use_project=true
+preverify_config_value=CLDC-1.0
+proguard_keep=public class * extends javax.microedition.midlet.MIDlet|public class LogoParser extends java_cup.runtime.lr_parser|public class java_cup.runtime.lr_parser|class java_cup.runtime.lr_parser|class java_cup.runtime.Scanner|class java_cup.runtime.Symbol|class java_cup.runtime.virtual_parse_stack
+proguard_use_specified=true

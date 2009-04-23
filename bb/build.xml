@@ -1,0 +1,49 @@
+<project name="BBMobiLogo" default="build">
+   <taskdef resource="bb-ant-defs.xml"
+   	classpath="c:\ant\lib\bb-ant-tools.jar" />
+
+   <!-- rapc and sigtool require the jde.home property to be set -->
+   <property name="jde.home" location="C:\Program Files (x86)\Research In Motion\BlackBerry JDE 4.6.1" />
+
+   <!-- directory of simulator to copy files to -->
+   <property name="simulator.home" location="C:\Program Files\Research In Motion\3.8.0.145.simpackage.fledge\" />
+
+   <property name="src.link" value="src"/>
+   <property name="main.link" value="../src"/>
+   <property name="build.dir" location="build" />
+   <property name="cod.name" value="com_itsdarkhere_mobilogo_BBMobiLogo" />
+
+   <target name="build">
+      <mkdir dir="${build.dir}" />
+      <rapc output="${cod.name}" destdir="${build.dir}">
+        <src>
+           <fileset dir="${main.link}">
+             <include name="**/*.java"/>
+           </fileset>
+           <fileset dir="${src.link}">
+             <include name="**/*.java"/>
+           </fileset>
+        	<!--
+           <fileset dir="${CUP_DIR}">
+             <include name="java-cup-11-runtime.jar"/>
+           </fileset>
+           -->
+         </src>
+         <jdp title="MobiLogo" />
+      </rapc>
+   </target>
+ 
+   <target name="sign">
+      <sigtool codfile="${build.dir}/${cod.name}.cod" />
+   </target>
+ 
+   <target name="clean">
+      <delete dir="${build.dir}" />
+   </target>
+ 
+   <target name="load-simulator" depends="build">
+      <copy todir="${simulator.home}">
+         <fileset dir="${build.dir}" includes="*.cod,*.cso,*.debug,*.jad,*.jar" />
+      </copy>
+   </target>
+</project>

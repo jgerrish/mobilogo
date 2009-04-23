@@ -1,0 +1,51 @@
+grammar Logo;
+
+options {
+    output=AST;
+    ASTLabelType=CommonTree; // type of $stat.tree ref etc...
+}
+
+@header {
+package com.thedomokun.common;
+import com.thedomokun.logonodes.*;
+}
+@lexer::header {
+package com.thedomokun.common;
+}
+
+LEFT       : 'LEFT'|'LT';
+RIGHT      : 'RIGHT'|'RT';
+FORWARD    : 'FORWARD'|'FD';
+BACKWARD   : 'BACKWARD'|'BK';
+FR         : 'FR';
+FL          : 'FL';
+BR          : 'BR';
+BL          : 'BL';
+REPEAT      : 'REPEAT';
+TO          : 'TO';
+END         : 'END';
+LBRACKET    : '[';
+RBRACKET    : ']';
+INTEGER     : '0'..'9'+;
+DOUBLE      : '0'..'9'+'.''0'..'9'+;
+IDENTIFIER  : ('a'..'z' | 'A'..'Z')+;
+COLON       : ':';
+EOL         : '\r'|'\n'|'\r\n';
+WS          : (' '|'\r'|'\n')+ {$channel = HIDDEN;} ;
+
+
+command     : FORWARD term
+            { $value = new LogoCmd(LogoSym.FORWARD, $term.intValue()); }
+            | BACKWARD term
+            { $value = new LogoCmd(LogoSym.BACKWARD, $term.intValue()); }
+            | RIGHT term
+            { $value = new LogoCmd(LogoSym.RIGHT, $term.intValue()); }
+            | LEFT term
+            { $value = new LogoCmd(LogoSym.LEFT, $term.intValue()); }
+            | IDENTIFIER
+            { $value = new LogoCmd((String)$IDENTIFIER.value); }
+            ;
+
+term : INTEGER;
+
+sensors : 'FR' | 'FL' | 'BR' | 'BL';

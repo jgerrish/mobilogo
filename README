@@ -1,0 +1,118 @@
+MobiLogo
+LOGO interpreter for mobile phones.
+Author: Joshua Gerrish
+jgerrish@gmail.com
+
+Introduction
+
+MobiLogo is a LOGO interpreter for mobile phones.  The project includes ports to several
+popular mobile phones and smart phones.  Currently, MobiLogo works on the following devices:
+
+CLDC 1.0/MIDP 2.0 phones (J2ME)
+CLDC 1.0/MIDP 2.0 with LWUIT
+BlackBerry Pearl/Curve and newer devices
+
+
+
+Installation
+
+Prerequisites:
+You will need to install the following toolkits and packages to build MobiLogo:
+
+To work on the MIDP version, install the Sun Java Wireless Toolkit (WTK):
+http://java.sun.com/products/sjwtoolkit/download.html
+
+
+If you want to work on the BlackBerry version, install the BlackBerry JDE:
+http://na.blackberry.com/eng/developers/javaappdev/javadevenv.jsp
+
+
+If you want to rebuild the scanner/lexer, install JFlex:
+http://jflex.de/download.html
+
+
+Eclipse
+
+Development for MobiLogo is primarily done in Eclipse.  The following are additional
+prerequisites needed for MobiLogo:
+
+Install the EclipseME toolkit:
+
+http://eclipseme.org/
+
+You can install EclipseME by entering the update manager URL in Eclipse.
+
+
+
+To make development and porting to new devices easier, the source code was split into
+several directories, along with a main directory containing code common to all devices.
+In Eclipse, each port is opened as a separate project.  Before you begin development in
+Eclipse, first make sure you have the required prerequisites installed (at least the WTK
+or BlackBerry JDE).  Next you will need to create several path variables that points
+to where you unpacked the MobiLogo source code.
+
+
+To create a path variable in Eclipse, Click on Window -> Preferences.
+Then expand General->Workspace->Linked Resources
+
+First, we're going to point to the main directory.  Click New to create a new variable.
+The variable name is MOBILOGO_MAIN,
+If you extracted mobilogo to the /workspace directory, the path would be:
+
+/workspace/mobilogo
+
+
+If you are on Windows, the path would be:
+
+C:\workspace\mobilogo
+
+Or wherever you put the mobilogo project.
+
+
+
+Finally, we want to import the projects.  
+
+File->Import
+Existing Projects into workspace
+
+For the root directory, choose the mobilogo directory.  Then select the projects you
+want to import.
+
+
+
+Using SVN:
+
+First, install the subversion tools for Eclipse:
+
+
+Select Software Updates under the Help menu.
+
+Click the Available Software tab
+Choose the following add-ons:
+* Subversive SVN Integration for the Mylyn Project
+* Subversive SVN Team Provider
+* Subversive SVN Team Provider Localization
+
+Then you need to install the Subversive SVN Connectors.
+
+Click the Add Site button, and enter the following URL:
+http://www.polarion.org/projects/subversive/download/eclipse/2.0/update-site/
+
+Then choose the following Add-ons:
+* SVNKit 1.2.0 Implementation
+* Subversive SVN Connectors
+
+
+
+After doing this, you can check out the project with Eclipse, or use the
+Team -> Share Project option to configure a project that has already
+been imported into Eclipse.
+
+
+
+Ant
+
+TODO: Write documentation for development with Ant.
+
+BlackBerry ant tools
+http://bb-ant-tools.sourceforge.net/

@@ -1,0 +1,7 @@
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Joshua Gerrish
+MIDlet-Jar-URL: mobilogo.jar
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-1: MobiLogo,,com.thedomokun.mobilogo.LWUITMobiLogo
+MicroEdition-Profile: MIDP-2.0
+MIDlet-Name: MobiLogo

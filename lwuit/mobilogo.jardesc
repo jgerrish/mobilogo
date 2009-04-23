@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="mobilogo/mobilogo.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/mobilogo/mobilogo.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="/mobilogo/mobilogo.jad" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=mobilogo/src"/>
+        <file path="/mobilogo/Application Descriptor"/>
+        <folder path="/mobilogo/deployed"/>
+        <file path="/mobilogo/LogoParser.cup"/>
+        <javaElement handleIdentifier="=mobilogo/res"/>
+        <file path="/mobilogo/.project"/>
+        <file path="/mobilogo/.mtj"/>
+        <file path="/mobilogo/logo.lex"/>
+        <file path="/mobilogo/.classpath"/>
+    </selectedElements>
+    <fatjar builder="org.eclipse.jdt.ui.plain_jar_builder" launchConfig=""/>
+</jardesc>
