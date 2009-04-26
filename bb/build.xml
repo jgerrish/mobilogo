@@ -29,7 +29,7 @@
            </fileset>
            -->
          </src>
-         <jdp title="MobiLogo" />
+         <jdp title="MobiLogo" icon="mobilogo.png"/>
       </rapc>
    </target>
  
