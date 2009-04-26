@@ -1,5 +1,5 @@
 bb/bin/**/*
-bb/build/*
+bb/build/com_itsdarkhere_mobilogo*
 lib/LWUIT.jar
 lwuit/bin/**/*
 lwuit/deployed/**/*

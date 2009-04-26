@@ -1,0 +1,25 @@
+<loader version="1.0">
+    <application id="MobiLogo">
+        <name>MobiLogo</name>
+        <description>
+	    MobiLogo LOGO Interpreter for BlackBerry
+        </description>
+        <version>1.0.0</version>
+
+        <vendor>
+            Elemental Software
+        </vendor>
+
+        <copyright>
+            Copyright (c) 2009 Elemental Software
+        </copyright>
+
+        <fileset Java="1.4">
+            <files>
+                com_itsdarkhere_mobilogo_BBMobiLogo.cod
+            </files>
+        </fileset>
+
+    </application>
+
+</loader>
