@@ -11,6 +11,7 @@
    <property name="src.link" value="src"/>
    <property name="main.link" value="../src"/>
    <property name="build.dir" location="build" />
+   <property name="lib.dir" location="../lib" />
    <property name="cod.name" value="com_itsdarkhere_mobilogo_BBMobiLogo" />
 
    <target name="build">
@@ -23,11 +24,12 @@
            <fileset dir="${src.link}">
              <include name="**/*.java"/>
            </fileset>
-        	<!--
-           <fileset dir="${CUP_DIR}">
-             <include name="java-cup-11-runtime.jar"/>
+           <fileset dir="${lib.dir}">
+             <include name="kxml2-2.3.0.jar"/>
+             <include name="kxmlrpc-1.1.2.jar"/>
+             <include name="lcrypto-modrupal-1.43.jar"/>
+             <include name="modrupal-0.1.jar"/>
            </fileset>
-           -->
          </src>
          <jdp title="MobiLogo" icon="mobilogo.png"/>
       </rapc>

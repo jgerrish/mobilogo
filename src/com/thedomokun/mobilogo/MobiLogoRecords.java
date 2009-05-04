@@ -1,6 +1,7 @@
 package com.thedomokun.mobilogo;
 
 import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.Vector;
 
 public class MobiLogoRecords {
@@ -14,7 +15,18 @@ public class MobiLogoRecords {
         return records.size();
     }
 
-    public void parse(String text) throws RecordParseException {
+    public void parseModrupal(Vector nodes) throws RecordParseException {
+        records = new Vector();
+        int cnt = nodes.size();
+        Enumeration e = nodes.elements();
+        while (e.hasMoreElements()) {
+            MobiLogoRecord r = new MobiLogoRecord();
+            r.readModrupal((Hashtable)e.nextElement());
+            records.addElement(r);
+        }
+    }
+
+    public void parseText(String text) throws RecordParseException {
         Vector strings;
         strings = splitString(text);
 
@@ -30,7 +42,7 @@ public class MobiLogoRecords {
         Enumeration e = strings.elements();
         while (e.hasMoreElements()) {
             MobiLogoRecord r = new MobiLogoRecord();
-            r.read(e);
+            r.readText(e);
             records.addElement(r);
         }
     }

@@ -146,13 +146,13 @@ public class BBMobiLogoScreen extends MainScreen {
     private void onBrowseCommand() {
         BBMobiLogoBrowseScreen bs = new BBMobiLogoBrowseScreen();
         UiApplication.getUiApplication().pushModalScreen(bs);
-        bs._connectionThread.stop();
+        bs.modrupalThread.stop();
     }
     
     private void onShareCommand() {
         BBMobiLogoBrowseScreen bs = new BBMobiLogoBrowseScreen();
         UiApplication.getUiApplication().pushModalScreen(bs);
-        bs._connectionThread.stop();
+        bs.modrupalThread.stop();
     }
 
     public boolean navigationClick(int status, int time) {
