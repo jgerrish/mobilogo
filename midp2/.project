@@ -6,16 +6,6 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>pi.eclipse.cle.CupBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>pi.eclipse.cle.LexBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
@@ -36,6 +26,11 @@
 			<name>main</name>
 			<type>2</type>
 			<locationURI>MOBILOGO_MAIN/src</locationURI>
+		</link>
+		<link>
+			<name>test</name>
+			<type>2</type>
+			<locationURI>MOBILOGO_MAIN/test</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

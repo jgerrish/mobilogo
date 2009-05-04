@@ -19,15 +19,13 @@ public class BBMobiLogoBrowseScreen extends FullScreen {
     public BBProjectListField scriptList;
     private Vector scripts;
     // define a constant for the location of the page to retrieve
-    public static final String base_url = "http://www.thedomokun.com/~josh/mobilogo/";
-    private static final String script_url = base_url + "getscripts.php";
-
-    // define a constant for the valid http protocol strings
-    private static final String[] HTTP_PROTOCOL = { "http://", "http:\\" };
-
-
+    public static final String url =
+        "http://www.thedomokun.com/drupal/?q=services/xmlrpc";
+    public static final String image_base_url =
+        "http://www.thedomokun.com/drupal/sites/default/files/";
+    
     // create a new ConnectionThread
-    public ConnectionThread _connectionThread;
+    public ModrupalThread modrupalThread;
 
     public BBMobiLogoBrowseScreen() {
         super(DEFAULT_MENU | DEFAULT_CLOSE);
@@ -37,37 +35,18 @@ public class BBMobiLogoBrowseScreen extends FullScreen {
         scriptList.setRowHeight(52);
         add(scriptList);
         
-        _connectionThread = new ConnectionThread(scriptList);
+        modrupalThread = new ModrupalThread(scriptList);
 
-        _connectionThread.start();
-        //HttpConnection conn = new HttpConnection();
-        //scripts = conn.getScripts("http://oscar/~josh/getscripts.php");
-        //String s[] = new String[scripts.size()];
-        //scripts.copyInto(s);
-        fetchPage(script_url);
+        modrupalThread.start();
+        fetchPage(url);
         //scriptList.set(s);
     }
 
     // methods
     private void fetchPage(String url) {
         // normalize the URL
-        String lcase = url.toLowerCase();
-        boolean validHeader = false;
-        int i = 0;
-
-        // winding down and comparing to 0 saves instructions
-        for (i = HTTP_PROTOCOL.length - 1; i >= 0; --i) {
-            if (-1 != lcase.indexOf(HTTP_PROTOCOL[i])) {
-                validHeader = true;
-                break;
-            }
-        }
-        if (!validHeader) {
-            url = HTTP_PROTOCOL[0] + url; // prepend the protocol specifier
-        }
-
         // create a new thread for connection operations
-        _connectionThread.fetch(url);
+        modrupalThread.fetch(url);
     }
 
 

@@ -42,7 +42,7 @@ public class MIDPMobiLogo extends MIDlet implements CommandListener {
         sourceCommandListener = new SourceCommandListener();
 
         evalCommandListener = new EvalCommandListener();
-
+        //System.out.println("test");
 
         // TODO: Write up some unit tests to test the interpreter
         //String test = "FD 30 RT 90";

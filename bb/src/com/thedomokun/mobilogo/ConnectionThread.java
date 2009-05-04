@@ -126,7 +126,7 @@ public class ConnectionThread extends Thread {
         MobiLogoRecords records = new MobiLogoRecords();
         ImageDownloader img_conn = new ImageDownloader();
         try {
-            records.parse(text);
+            records.parseText(text);
         } catch (RecordParseException e) {
             final String str2 = e.toString();
             UiApplication.getUiApplication().invokeLater(new Runnable(){
@@ -144,7 +144,7 @@ public class ConnectionThread extends Thread {
         BBImage images[] = new BBImage[num_records];
 
         // We now have the records from the server.  Get the images
-        String base_url = BBMobiLogoBrowseScreen.base_url;
+        String base_url = BBMobiLogoBrowseScreen.url;
         for (int i = 0; i < num_records; i++) {
             BBImage img = null;
             MobiLogoRecord record = (MobiLogoRecord)records.records.elementAt(i);
