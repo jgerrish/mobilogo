@@ -106,7 +106,7 @@ public class LogoList extends LogoVal {
 
     public void parse(LogoLex scanner, Yytoken cur_token, LogoEnv env)
            throws IOException, LogoParseException {
-        Yytoken token;
+        //Yytoken token;
 
         if (cur_token.m_index != LogoSym.LBRACKET)
             throw new LogoParseException("Expected a list");

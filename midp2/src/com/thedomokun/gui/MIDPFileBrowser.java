@@ -174,7 +174,6 @@ public class MIDPFileBrowser extends Form
     }
 
     public void commandAction(Command c, Displayable d) {
-        final Displayable d2 = d;
         if (c == select) {
             List curr = (List)d;
             final String currFile = curr.getString(curr.getSelectedIndex());
@@ -384,7 +383,8 @@ public class MIDPFileBrowser extends Form
     void createFile() {
         Form creator = new Form("New File");
         nameInput = new TextField("Enter Name", null, 256, TextField.ANY);
-        typeInput = new ChoiceGroup("Enter File Type", Choice.EXCLUSIVE, typeList, iconList);
+        typeInput = new ChoiceGroup("Enter File Type", Choice.EXCLUSIVE,
+                typeList, iconList);
         creator.append(nameInput);
         creator.append(typeInput);
         creator.addCommand(creatOK);
